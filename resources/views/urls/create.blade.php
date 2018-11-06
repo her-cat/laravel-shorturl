@@ -50,7 +50,7 @@
                 data: {url: url},
                 url: '{{ route('urls.store') }}',
                 complete: () => {
-                    _this.removeAttr('disabled');
+                    _this.prop('disabled', false);
                 },
                 success: (response) => {
                     if (response.code != 0) {
