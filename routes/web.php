@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'UrlsController@create');
-Route::post('/urls', 'UrlsController@store');
-Route::post('/{url}', 'UrlsController@redirect');
+Route::get('/', 'UrlsController@create')->name('urls.create');
+Route::post('/urls', 'UrlsController@store')->name('urls.store');
+Route::get('/{url}', 'UrlsController@redirect')->name('urls.redirect');

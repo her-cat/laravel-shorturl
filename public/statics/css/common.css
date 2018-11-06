@@ -1,0 +1,95 @@
+body {
+    font-family: Microsoft Yahei, serif;
+}
+
+.main {
+    min-width: 320px;
+    max-width: 600px;
+    min-height: 700px;
+    margin-top: 200px;
+}
+
+@media only screen and (max-width: 800px) {
+    .main {
+        margin-top: 80px;
+        min-height: 450px;
+    }
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    padding: 16px 0;
+    /*background-color: #424242;*/
+    color: #9e9e9e;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #bbbbbb;
+}
+
+.footer-nav h4 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.footer-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-nav ul li {
+    margin: 0 0 10px 0;
+}
+
+.footer-donate-btn {
+    margin-top: 24px;
+}
+
+.footer-divider {
+    margin: 16px 0;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 12px;
+}
+
+.mdui-theme-layout-dark footer {
+    background-color: #333333;
+}
+
+@media (min-width: 600px) {
+    footer {
+        padding: 24px 0;
+    }
+
+    .footer-divider {
+        margin: 24px 0;
+    }
+
+    .footer-copyright {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1024px) {
+    footer {
+        padding: 32px 0;
+    }
+
+    .footer-divider {
+        margin: 32px 0;
+    }
+}

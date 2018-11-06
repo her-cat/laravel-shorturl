@@ -19,11 +19,13 @@ class UrlsController extends Controller
         $url->keyword = array_pop($short_urls);
         $url->save();
 
-        return $url->short_url;
+        $this->setKeyContent('short_url', $url->short_url);
+
+        return $this->response();
     }
 
     public function redirect(Url $url)
     {
-        return redirect($url->url)->header('reffer', config('app.url'));
+        return redirect($url->url);
     }
 }

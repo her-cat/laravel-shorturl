@@ -24,8 +24,7 @@ class Url extends Model
 
     public function setUrlAttribute($value)
     {
+        $this->attributes['url'] = $value;
         $this->attributes['hash'] = md5($value);
-
-        return $value;
     }
 }
