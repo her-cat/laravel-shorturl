@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Url;
+use App\Observers\UrlObserver;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Carbon::setLocale('zh');
+
+        Url::observe(UrlObserver::class);
     }
 
     /**

@@ -8,7 +8,7 @@
 
 /**
  * 生成关键词
- * @param $url 原网址
+ * @param $url 网址
  * @return array 关键词数组
  * @link https://cloud.tencent.com/developer/article/1158906
  */

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UrlExistException;
 use App\Http\Requests\UrlRequest;
 use App\Models\Url;
 
@@ -14,10 +15,12 @@ class UrlsController extends Controller
 
     public function store(UrlRequest $request, Url $url)
     {
-        $url->url = $request->url;
-        $short_urls = generate_keyword($request->url);
-        $url->keyword = array_pop($short_urls);
-        $url->save();
+        try {
+            $url->save($request->all());
+        } catch (UrlExistException $e) {
+            $url = $e->geturl();
+            $this->setMessage('网址已存在！');
+        }
 
         $this->setKeyContent('short_url', $url->short_url);
 

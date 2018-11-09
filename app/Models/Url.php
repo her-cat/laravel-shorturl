@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Url extends Model
 {
+
     public function getRouteKeyName()
     {
         return 'keyword';
@@ -20,11 +21,5 @@ class Url extends Model
         );
 
         return $short_url;
-    }
-
-    public function setUrlAttribute($value)
-    {
-        $this->attributes['url'] = $value;
-        $this->attributes['hash'] = md5($value);
     }
 }
