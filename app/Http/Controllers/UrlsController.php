@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UrlClicked;
 use App\Exceptions\UrlExistException;
 use App\Http\Requests\UrlRequest;
 use App\Models\Url;
@@ -29,6 +30,8 @@ class UrlsController extends Controller
 
     public function redirect(Url $url)
     {
+        event(new UrlClicked($url));
+
         return redirect($url->url);
     }
 }
