@@ -17,6 +17,6 @@ class UpdateUrlClicks implements ShouldQueue
     {
         $url = $event->getUrl();
         // 更新点击次数
-        $url->update(['clicks' => $url->clicks + 1]);
+        \DB::table($url->getTable())->where('id', $url->id)->increment('clicks');
     }
 }
