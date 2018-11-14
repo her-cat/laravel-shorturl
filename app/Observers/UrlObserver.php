@@ -13,7 +13,7 @@ class UrlObserver
     public function creating(Url $url)
     {
         if (empty($url->url)) {
-            \abort('URL 不能为空！');
+            \abort(500, 'URL 不能为空！');
         }
 
         if (empty($url->hash) || $url->hash != md5($url->url)) {
@@ -28,7 +28,7 @@ class UrlObserver
         if (empty($url->keyword)) {
             $keywords = generate_keyword($url->url);
             while (empty($url->keyword)) {
-                $exist_keywords = Url::whereIn('keyword', $keywords)->pluck('keyword');
+                $exist_keywords = Url::whereIn('keyword', $keywords)->pluck('keyword')->toArray();
                 $keywords = array_diff($keywords, $exist_keywords);
                 if (count($keywords) == 0) {
                     $keywords = generate_keyword($url->url . $url->hash . microtime(true));

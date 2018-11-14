@@ -17,7 +17,7 @@ class UrlsController extends Controller
     public function store(UrlRequest $request, Url $url)
     {
         try {
-            $url->save($request->all());
+            $url->fill($request->all())->save();
         } catch (UrlExistException $e) {
             $url = $e->geturl();
             $this->setMessage('网址已存在！');
