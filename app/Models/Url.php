@@ -13,7 +13,7 @@ class Url extends Model
         return 'keyword';
     }
 
-    public function getShortUrlAttribute()
+    public function getShorturlAttribute()
     {
         $short_url = sprintf(
             '%s/%s',

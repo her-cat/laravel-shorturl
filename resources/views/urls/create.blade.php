@@ -57,7 +57,7 @@
                         mdui.snackbar('生成失败！');
                         return;
                     }
-                    showDialog(response.content.short_url);
+                    showDialog(response.content.shorturl);
                 },
                 error: (response) => {
                     mdui.snackbar('发生错误！');
@@ -65,15 +65,15 @@
             });
         });
 
-        function showDialog(short_url) {
+        function showDialog(shorturl) {
             mdui.dialog({
                 title: '',
                 content:
                     '<div class="mdui-typo">' +
                     '<div class="mdui-m-t-2 mdui-m-b-1 mdui-text-center">' +
                     '<label class="mdui-text-color-black-secondary">短链接： </label>' +
-                    '<code class="js-icon-code-copy" data-clipboard-text=\'' + short_url + '\' mdui-tooltip="{content: \'点击复制\'}">' +
-                    short_url +
+                    '<code class="js-icon-code-copy" data-clipboard-text=\'' + shorturl + '\' mdui-tooltip="{content: \'点击复制\'}">' +
+                    shorturl +
                     '</code>' +
                     '</div>' +
                     '</div>',

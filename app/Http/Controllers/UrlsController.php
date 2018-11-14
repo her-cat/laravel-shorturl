@@ -23,7 +23,7 @@ class UrlsController extends Controller
             $this->setMessage('网址已存在！');
         }
 
-        $this->setKeyContent('short_url', $url->short_url);
+        $this->setKeyContent('shorturl', $url->shorturl);
 
         return $this->response();
     }
