@@ -6,6 +6,7 @@ use App\Events\UrlClicked;
 use App\Exceptions\UrlExistException;
 use App\Http\Requests\UrlRequest;
 use App\Models\Url;
+use Illuminate\Http\Request;
 
 class UrlsController extends Controller
 {
@@ -28,9 +29,9 @@ class UrlsController extends Controller
         return $this->response();
     }
 
-    public function redirect(Url $url)
+    public function redirect(Request $request, Url $url)
     {
-        event(new UrlClicked($url));
+        event(new UrlClicked($url, $request));
 
         return redirect($url->url);
     }

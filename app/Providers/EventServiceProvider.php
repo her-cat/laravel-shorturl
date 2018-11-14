@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\UrlClicked;
+use App\Listeners\AddAccessLog;
 use App\Listeners\UpdateUrlClicks;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -15,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         UrlClicked::class => [
+            AddAccessLog::class,
             UpdateUrlClicks::class,
         ],
     ];

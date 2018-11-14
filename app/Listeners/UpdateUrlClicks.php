@@ -8,6 +8,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class UpdateUrlClicks implements ShouldQueue
 {
     /**
+     * 最大尝试次数
+     * @var int
+     */
+    public $tries = 1;
+
+    /**
      * Handle the event.
      *
      * @param  UrlClicked  $event
